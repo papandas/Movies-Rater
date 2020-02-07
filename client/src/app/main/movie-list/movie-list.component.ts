@@ -10,18 +10,29 @@ import { Movie } from '../../models/Movie';
 export class MovieListComponent implements OnInit {
 
   @Input() movies: Movie[] = [];
-
   @Output() selectMovie = new EventEmitter<Movie>();
+  @Output() editedMovie = new EventEmitter<Movie>();
+  @Output() deleteMovie = new EventEmitter<Movie>();
+  @Output() createNewMovie = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
-  movieClicked(movie: Movie){
-    //console.log("Movie Clicked -> ", movie)
+  movieClicked(movie: Movie) {
     this.selectMovie.emit(movie);
   }
 
+  editMovie(movie: Movie) {
+    //console.log("Clicked on edit button!")
+    this.editedMovie.emit(movie);
+  }
+
+  delete_Movie(movie: Movie){
+    this.deleteMovie.emit(movie);
+  }
+
+  createANewMovie(){
+    this.createNewMovie.emit();
+  }
 }

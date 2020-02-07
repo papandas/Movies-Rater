@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { MaterialModule } from '../material/material.module';
 import { ApiService } from '../api.service';
@@ -14,6 +15,7 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     CommonModule,
     MaterialModule,
     AngularFontAwesomeModule,
+    ReactiveFormsModule,
   ],
   providers: [
     ApiService

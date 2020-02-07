@@ -1,1 +1,26 @@
-<p>movie-form works!</p>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title" *ngIf="movieId">Edit Movie Form</h5>
+        <h5 class="card-title" *ngIf="!movieId">Create New Movie Form</h5><!---->
+
+        <form [formGroup]="movieForm" (ngSubmit)="submitForm()">
+
+            <mat-form-field appearance="fill">
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="title" required>
+            </mat-form-field>
+            <br>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Description</mat-label>
+                <textarea matInput rows="8" cols="60" formControlName="description" required></textarea>
+            </mat-form-field>
+            <br>
+
+            <button mat-raised-button color="primary" type="submit">
+                <span *ngIf="movieId">Update</span>
+                <span *ngIf="!movieId">Create</span>
+            </button>
+        </form>
+    </div>
+</div>

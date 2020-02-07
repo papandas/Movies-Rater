@@ -17,6 +17,18 @@ export class ApiService {
 
   constructor(private httpClient: HttpClient) { }
 
+  createMovie(title: string, description: string){
+    const url = `${this.baseURL}api/movies/`;
+    const body = JSON.stringify({title, description });
+    return this.httpClient.post(url, body, { headers: this.headers });
+  }
+
+  updateMovie(movieId: number, title: string, description: string){
+    const url = `${this.baseURL}api/movies/${movieId}/`;
+    const body = JSON.stringify({title, description });
+    return this.httpClient.put(url, body, { headers: this.headers });
+  }
+
   getMovies() {
     return this.httpClient.get<Movie[]>(this.baseURL + 'api/movies/', { headers: this.headers });
   }
@@ -24,6 +36,11 @@ export class ApiService {
   getMovie(movieId: number) {
     const url = `${this.baseURL}api/movies/${movieId}/`;
     return this.httpClient.get<Movie>(url, { headers: this.headers });
+  }
+
+  deleteMovie(movieId: number){
+    const url = `${this.baseURL}api/movies/${movieId}/`;
+    return this.httpClient.delete<Movie>(url, { headers: this.headers });
   }
 
   rateMovie(rate: number, movieId: number) {
