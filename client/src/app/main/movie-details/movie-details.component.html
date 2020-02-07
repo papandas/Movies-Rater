@@ -1,1 +1,39 @@
-<p>movie-details works!</p>
+<div *ngIf="movie">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{movie.title}}</h5>
+            
+            <fa name="star" [ngClass]="{'yellow': movie.averageRating > 0}"></fa>
+            <fa name="star" [ngClass]="{'yellow': movie.averageRating > 1}"></fa>
+            <fa name="star" [ngClass]="{'yellow': movie.averageRating > 2}"></fa>
+            <fa name="star" [ngClass]="{'yellow': movie.averageRating > 3}"></fa>
+            <fa name="star" [ngClass]="{'yellow': movie.averageRating > 4}"></fa>
+            ({{movie.numOfRating}})
+
+            <p class="card-text pt-2">{{movie.description}}</p>
+            
+            <div class="card" style="background-color: whitesmoke;">
+                <div class="card-body">
+                  <div class="row">
+                      <div class="col col-5">
+                        <h6 class="card-title">Rate Me!</h6>
+                      </div>
+                      <div class="col col-7">
+                        <fa name="star" 
+                            class="pr-1" 
+                            style="cursor: pointer;" 
+                            [ngClass]="{'orange': rateHovered >= rate}" 
+                            *ngFor="let rate of [1,2,3,4,5]" 
+                            (mouseenter)="rateHover(rate)" 
+                            (mouseleave)="rateHovered=0"
+                            (click)="rateClicked(rate)">
+                        </fa>
+                      </div>
+                  </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

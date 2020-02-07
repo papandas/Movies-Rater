@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { MaterialModule } from '../material/material.module';
 import { ApiService } from '../api.service';
 import { MainComponent } from './main.component';
@@ -11,7 +12,8 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
   declarations: [MainComponent, MovieListComponent, MovieFormComponent, MovieDetailsComponent],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    AngularFontAwesomeModule,
   ],
   providers: [
     ApiService

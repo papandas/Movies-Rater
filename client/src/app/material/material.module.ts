@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 // import * as Material from '@angular/material';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card';
+import {MatDividerModule} from '@angular/material/divider';
 /*import {MatGridListModule} from '@angular/material/grid-list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
@@ -16,6 +18,8 @@ import {MatButtonModule} from '@angular/material/button';*/
 const MaterialComponents = [
   MatToolbarModule,
   MatListModule,
+  MatCardModule,
+  MatDividerModule,
 ];
 
 @NgModule({
